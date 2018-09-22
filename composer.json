@@ -8,6 +8,8 @@
         "email": "xolens.official@gmail.com"
     }],
     "require": {
+        "xolens/laratraining-contract": "dev-master",
+
         "xolens/pglarautil": "1.0.0",
         "xolens/larautil-contract": "1.0.0",
         "xolens/larasetting-contract": "1.0.0"
@@ -36,5 +38,8 @@
     }, {
         "type": "git",
         "url": "https://github.com/xolens/pglarautil"
+    }, {
+        "type": "path",
+        "url": "/var/www/repositories/xolens.laravel/local/*"
     }]
 }
