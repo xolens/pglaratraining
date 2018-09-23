@@ -8,7 +8,7 @@ use PgLaratrainingCreateTableTrainingSpecialities;
 
 
 
-class TrainingSpecialitie extends Model
+class TrainingSpeciality extends Model
 {
     public $timestamps = false;
 

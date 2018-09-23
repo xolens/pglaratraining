@@ -6,9 +6,9 @@ use Xolens\PgLarautil\Test\TestCase;
 use Xolens\PgLarautil\Test\RepositoryTrait\ReadableRepositoryTestTrait;
 use Xolens\PgLarautil\Test\RepositoryTrait\WritableRepositoryTestTrait;
 
-abstract class TestPgLaraTrainingBase extends TestCase
+abstract class TestPgLaratrainingBase extends TestCase
 {
-    // use ReadableRepositoryTestTrait, WritableRepositoryTestTrait;
+    use ReadableRepositoryTestTrait, WritableRepositoryTestTrait;
     
     protected $repo;
 

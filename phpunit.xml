@@ -16,8 +16,31 @@
         <testsuite name="reset-migration">
             <file>src/Xolens/PgLaratraining/Test/CleanSchemaTest.php</file>
         </testsuite> 
-        <testsuite name="test-package">
-            <file>src/Xolens/PgLaratraining/Test/Repository/MigrationTest.php</file>
+        <testsuite name="test-package1">
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingCenterRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingCenterConventionRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingCenterPartnerRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingDegreeRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingSpecialityRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingTypeRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/DiseaseRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/HandicapRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/ScholarshipRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/StudentRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainerRepositoryTest.php</file>
+        </testsuite>
+        <testsuite name="test-package2">
+            <file>src/Xolens/PgLaratraining/Test/Repository/StudentDegreeRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/StudentDiseaseRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/StudentHandicapRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainerDegreeRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainerDiseaseRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainerHandicapRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingCenterModuleRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalLevelRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalLevelModuleRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/StudentSubscriptionRepositoryTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

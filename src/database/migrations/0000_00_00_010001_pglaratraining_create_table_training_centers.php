@@ -38,7 +38,7 @@ class PgLaratrainingCreateTableTrainingCenters extends PgLaratrainingMigration
             $table->string('website')->nullable();
             $table->integer('creation_year');
             $table->string('creation_order_number');
-            $table->timestamp('creation_order_date');
+            $table->date('creation_order_date');
             $table->integer('opening_year');
             $table->string('promoter_name')->nullable();;
             $table->string('promoter_gender')->nullable();; // Enum
