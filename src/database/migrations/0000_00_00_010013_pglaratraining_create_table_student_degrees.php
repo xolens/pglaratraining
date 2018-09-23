@@ -26,8 +26,8 @@ class PgLaratrainingCreateTableStudentDegrees extends PgLaratrainingMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('issued_institute');
-            $table->integer('issued_date');
+            $table->string('issued_institute')->nullable();
+            $table->date('issued_date')->nullable();
             $table->integer('training_degree_id')->index();
             $table->integer('student_id')->index();
         });
