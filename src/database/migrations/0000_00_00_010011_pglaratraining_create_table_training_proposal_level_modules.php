@@ -29,6 +29,7 @@ class PgLaratrainingCreateTableTrainingProposalLevelModules extends PgLaratraini
             $table->string('name'); // Enum
             $table->text('description')->nullable();
             $table->integer('trainer_id')->index();
+            $table->integer('training_module_id')->index();
             $table->integer('training_proposal_level_id')->index();
         });
         if(self::logEnabled()){

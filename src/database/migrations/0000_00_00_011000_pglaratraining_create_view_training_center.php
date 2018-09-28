@@ -22,9 +22,29 @@ class PgLaratrainingCreateViewTrainingCenter extends PgLaratrainingMigration
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableTrainingCenters::table();
+        $conventionTable = PgLaratrainingCreateTableTrainingCenterConventions::table();
+        $partnerTable = PgLaratrainingCreateTableTrainingCenterPartners::table();
+        $trainingProposalTable = PgLaratrainingCreateTableTrainingProposals::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
+                SELECT 
+                    ".$mainTable.".*,
+                    (
+                        SELECT count(id) 
+                        FROM ".$conventionTable." 
+                        WHERE ".$mainTable.".id = ".$conventionTable.".training_center_id
+                    ) as convention_count,
+                    (
+                        SELECT count(id) 
+                        FROM ".$partnerTable." 
+                        WHERE ".$mainTable.".id = ".$partnerTable.".training_center_id
+                    ) as partner_count,
+                    (
+                        SELECT count(DISTINCT training_speciality_id) 
+                        FROM ".$trainingProposalTable." 
+                        WHERE ".$mainTable.".id = ".$trainingProposalTable.".training_center_id
+                    ) as speciality_count
+
                 from ".$mainTable."
             )
         ");

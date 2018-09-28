@@ -22,9 +22,23 @@ class PgLaratrainingCreateViewTrainingDegree extends PgLaratrainingMigration
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableTrainingDegrees::table();
+        $studentDegreeTable = PgLaratrainingCreateTableStudentDegrees::table();
+        $trainerDegreeTable = PgLaratrainingCreateTableTrainerDegrees::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
+                SELECT 
+                    ".$mainTable.".*,
+                    (
+                        SELECT count(id) 
+                        FROM ".$studentDegreeTable." 
+                        WHERE ".$mainTable.".id = ".$studentDegreeTable.".training_degree_id
+                    ) as student_count,
+                    (
+                        SELECT count(id) 
+                        FROM ".$trainerDegreeTable." 
+                        WHERE ".$mainTable.".id = ".$trainerDegreeTable.".training_degree_id
+                    ) as trainer_count
+
                 from ".$mainTable."
             )
         ");

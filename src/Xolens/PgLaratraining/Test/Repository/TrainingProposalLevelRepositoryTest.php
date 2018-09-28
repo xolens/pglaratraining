@@ -30,6 +30,7 @@ final class TrainingProposalLevelRepositoryTest extends WritableTestPgLaratraini
         $trainingProposalId = $this->trainingProposalRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
             "name" => "name".$i,
+            "session" => "Janvier 201".$i,
             "duration" => 7*$i,
             "registration_fees" => 76300*$i,
             "training_fees" => 350*$i,
@@ -64,6 +65,7 @@ final class TrainingProposalLevelRepositoryTest extends WritableTestPgLaratraini
                 $trainingProposalId = $this->trainingProposalRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
                 "name" => "name".$i,
+                "session" => "Janvier 201".$i,
                 "duration" => 7*$i,
                 "registration_fees" => 76300*$i,
                 "training_fees" => 350*$i,

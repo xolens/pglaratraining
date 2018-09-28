@@ -22,9 +22,16 @@ class PgLaratrainingCreateViewScholarship extends PgLaratrainingMigration
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableScholarships::table();
+        $studentSubscriptionTable = PgLaratrainingCreateTableStudentSubscriptions::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
+                SELECT 
+                    ".$mainTable.".*,
+                    (
+                        SELECT count(id) 
+                        FROM ".$studentSubscriptionTable." 
+                        WHERE ".$mainTable.".id = ".$studentSubscriptionTable.".scholarship_id
+                    ) as student_count
                 from ".$mainTable."
             )
         ");

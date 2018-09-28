@@ -22,10 +22,20 @@ class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratraining
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableTrainingProposalLevelModules::table();
+        $trainingModuleTable = PgLaratrainingCreateTableTrainingModules::table();
+        $trainingProposalLevelTable = PgLaratrainingCreateTableTrainingProposalLevels::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
-                from ".$mainTable."
+                SELECT 
+                    ".$mainTable.".*,                    
+
+                    ".$trainingModuleTable.".name as training_module_name,              
+
+                    ".$trainingProposalLevelTable.".name as training_proposal_level_name,              
+                    ".$trainingProposalLevelTable.".session as training_proposal_level_session
+                FROM ".$mainTable." 
+                    LEFT JOIN ".$trainingModuleTable." ON ".$trainingModuleTable.".id = ".$mainTable.".training_module_id
+                    LEFT JOIN ".$trainingProposalLevelTable." ON ".$trainingProposalLevelTable.".id = ".$mainTable.".training_proposal_level_id
             )
         ");
     }

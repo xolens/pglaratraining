@@ -4,11 +4,11 @@ namespace Xolens\PgLaratraining\App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-use PgLaratrainingCreateTableTrainingCenterModules;
+use PgLaratrainingCreateTableTrainingModules;
 
 
 
-class TrainingCenterModule extends Model
+class TrainingModule extends Model
 {
     public $timestamps = false;
 
@@ -18,7 +18,7 @@ class TrainingCenterModule extends Model
      * @var array
      */
     protected $fillable = [
-        'id','name','description','training_center_id'
+        'id','name','description'
     ];
 
     /**
@@ -29,7 +29,7 @@ class TrainingCenterModule extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLaratrainingCreateTableTrainingCenterModules::table();
+        $this->table = PgLaratrainingCreateTableTrainingModules::table();
         parent::__construct($attributes);
     }
 

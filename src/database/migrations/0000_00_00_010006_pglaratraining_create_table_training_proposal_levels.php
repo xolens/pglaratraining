@@ -28,6 +28,7 @@ class PgLaratrainingCreateTableTrainingProposalLevels extends PgLaratrainingMigr
             $table->increments('id');
             $table->string('name');
             $table->integer('duration');
+            $table->string('session');
             $table->integer('registration_fees');
             $table->integer('training_fees');
             $table->integer('training_capacity');

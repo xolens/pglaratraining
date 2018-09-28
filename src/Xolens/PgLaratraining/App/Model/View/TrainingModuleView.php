@@ -4,11 +4,11 @@ namespace Xolens\PgLaratraining\App\Model\View;
 
 use Illuminate\Database\Eloquent\Model;
 
-use PgLaratrainingCreateViewTrainingCenterModule;
+use PgLaratrainingCreateViewTrainingModule;
 
 
 
-class TrainingCenterModuleView extends Model
+class TrainingModuleView extends Model
 {
     public $timestamps = false;
 
@@ -27,7 +27,7 @@ class TrainingCenterModuleView extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLaratrainingCreateViewTrainingCenterModule::table();
+        $this->table = PgLaratrainingCreateViewTrainingModule::table();
         parent::__construct($attributes);
     }
 }

@@ -22,10 +22,23 @@ class PgLaratrainingCreateViewTrainingProposalLevel extends PgLaratrainingMigrat
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableTrainingProposalLevels::table();
+        $studentSubscriptionTable = PgLaratrainingCreateTableStudentSubscriptions::table();
+        $trainingProposalTable = PgLaratrainingCreateTableTrainingProposals::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
-                from ".$mainTable."
+                SELECT 
+                    ".$mainTable.".*,                    
+
+                    ".$trainingProposalTable.".name as training_proposal_name,              
+                    ".$trainingProposalTable.".total_fees as training_proposal_total_fees,              
+                    ".$trainingProposalTable.".year as training_proposal_year,
+                    (
+                        SELECT count(DISTINCT ".$studentSubscriptionTable.".student_id) 
+                        FROM ".$studentSubscriptionTable."
+                        WHERE ".$mainTable.".id = ".$studentSubscriptionTable.".training_proposal_level_id
+                    ) as student_subscription_count
+                FROM ".$mainTable." 
+                LEFT JOIN ".$trainingProposalTable." ON ".$mainTable.".training_proposal_id = ".$trainingProposalTable.".id
             )
         ");
     }

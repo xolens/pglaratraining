@@ -2,12 +2,12 @@
 
 namespace Xolens\PgLaratraining\Test\View\Repository;
 
-use Xolens\PgLaratraining\App\Repository\View\TrainingCenterModuleViewRepository;
+use Xolens\PgLaratraining\App\Repository\View\TrainingModuleViewRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\ReadOnlyTestPgLaratrainingBase;
 
-final class TrainingCenterModuleViewRepositoryTest extends ReadOnlyTestPgLaratrainingBase
+final class TrainingModuleViewRepositoryTest extends ReadOnlyTestPgLaratrainingBase
 {
     /**
      * Setup the test environment.
@@ -15,7 +15,7 @@ final class TrainingCenterModuleViewRepositoryTest extends ReadOnlyTestPgLaratra
     protected function setUp(): void{
         parent::setUp();
         $this->artisan('migrate');
-        $repo = new TrainingCenterModuleViewRepository();
+        $repo = new TrainingModuleViewRepository();
         $this->repo = $repo;
     }
 

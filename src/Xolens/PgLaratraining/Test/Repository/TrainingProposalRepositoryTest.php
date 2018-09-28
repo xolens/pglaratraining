@@ -44,6 +44,7 @@ final class TrainingProposalRepositoryTest extends WritableTestPgLaratrainingBas
             "name" => "name".$i,
             "total_fees" => 524300*$i,
             "total_duration" => 8*$i,
+            "year" => 200+$i,
             "description" => "description".$i,
             "training_center_id" => $trainingCenterId,
             "training_speciality_id" => $trainingSpecialityId,
@@ -82,11 +83,12 @@ final class TrainingProposalRepositoryTest extends WritableTestPgLaratrainingBas
                 "name" => "name".$i,
                 "total_fees" => 524300*$i,
                 "total_duration" => 8*$i,
+                "year" => 200+$i,
                 "description" => "description".$i,
-            "training_center_id" => $trainingCenterId,
-            "training_speciality_id" => $trainingSpecialityId,
-            "training_type_id" => $trainingTypeId,
-            "training_degree_id" => $trainingDegreeId,
+                "training_center_id" => $trainingCenterId,
+                "training_speciality_id" => $trainingSpecialityId,
+                "training_type_id" => $trainingTypeId,
+                "training_degree_id" => $trainingDegreeId,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

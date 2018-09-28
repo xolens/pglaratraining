@@ -2,13 +2,12 @@
 
 namespace Xolens\PgLaratraining\Test\Repository;
 
-use Xolens\PgLaratraining\App\Repository\TrainingCenterModuleRepository;
-use Xolens\PgLaratraining\App\Repository\TrainingCenterRepository;
+use Xolens\PgLaratraining\App\Repository\TrainingModuleRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
-final class TrainingCenterModuleRepositoryTest extends WritableTestPgLaratrainingBase
+final class TrainingModuleRepositoryTest extends WritableTestPgLaratrainingBase
 {
     protected $trainingCenterRepo;
     /**
@@ -17,8 +16,7 @@ final class TrainingCenterModuleRepositoryTest extends WritableTestPgLaratrainin
     protected function setUp(): void{
         parent::setUp();
         $this->artisan('migrate');
-        $repo = new TrainingCenterModuleRepository();
-        $this->trainingCenterRepo = new TrainingCenterRepository();
+        $repo = new TrainingModuleRepository();
         $this->repo = $repo;
     }
 
@@ -27,11 +25,9 @@ final class TrainingCenterModuleRepositoryTest extends WritableTestPgLaratrainin
      */
     public function test_make(){
         $i = rand(0, 10000);
-        $trainingCenterId = $this->trainingCenterRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
             "name" => "name".$i,
             "description" => "description".$i,
-            "training_center_id" => $trainingCenterId,
         ]);
         $this->assertTrue(true);
     }
@@ -57,11 +53,9 @@ final class TrainingCenterModuleRepositoryTest extends WritableTestPgLaratrainin
         $generatedItemsId = [];
         
         for($i=$count; $i<($toGenerateCount+$count); $i++){
-                $trainingCenterId = $this->trainingCenterRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
                 "name" => "name".$i,
                 "description" => "description".$i,
-            "training_center_id" => $trainingCenterId,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

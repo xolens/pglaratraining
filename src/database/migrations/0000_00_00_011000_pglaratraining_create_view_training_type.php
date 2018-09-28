@@ -24,7 +24,7 @@ class PgLaratrainingCreateViewTrainingType extends PgLaratrainingMigration
         $mainTable = PgLaratrainingCreateTableTrainingTypes::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
+                SELECT ".$mainTable.".*
                 from ".$mainTable."
             )
         ");

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use Xolens\PgLaratraining\App\Util\PgLaratrainingMigration;
 
-class PgLaratrainingCreateTableTrainingCenterModules extends PgLaratrainingMigration
+class PgLaratrainingCreateTableTrainingModules extends PgLaratrainingMigration
 {
     /**
      * Return table name
@@ -14,7 +14,7 @@ class PgLaratrainingCreateTableTrainingCenterModules extends PgLaratrainingMigra
      * @return string
      */
     public static function tableName(){
-        return 'training_center_modules';
+        return 'training_modules';
     }    
 
     /**
@@ -28,7 +28,6 @@ class PgLaratrainingCreateTableTrainingCenterModules extends PgLaratrainingMigra
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->integer('training_center_id')->index();
         });
         if(self::logEnabled()){
             self::registerForLog();

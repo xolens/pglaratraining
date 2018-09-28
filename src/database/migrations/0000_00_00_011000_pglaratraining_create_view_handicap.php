@@ -22,9 +22,23 @@ class PgLaratrainingCreateViewHandicap extends PgLaratrainingMigration
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableHandicaps::table();
+        $studentHandicapTable = PgLaratrainingCreateTableStudentHandicaps::table();
+        $trainerHandicapTable = PgLaratrainingCreateTableTrainerHandicaps::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
+                SELECT 
+                    ".$mainTable.".*,
+                    (
+                        SELECT count(id) 
+                        FROM ".$studentHandicapTable." 
+                        WHERE ".$mainTable.".id = ".$studentHandicapTable.".handicap_id
+                    ) as student_count,
+                    (
+                        SELECT count(id) 
+                        FROM ".$trainerHandicapTable." 
+                        WHERE ".$mainTable.".id = ".$trainerHandicapTable.".handicap_id
+                    ) as trainer_count
+
                 from ".$mainTable."
             )
         ");

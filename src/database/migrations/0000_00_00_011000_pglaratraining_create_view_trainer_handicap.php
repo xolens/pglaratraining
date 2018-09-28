@@ -22,10 +22,26 @@ class PgLaratrainingCreateViewTrainerHandicap extends PgLaratrainingMigration
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableTrainerHandicaps::table();
+        $handicapTable = PgLaratrainingCreateTableHandicaps::table();
+        $trainerTable = PgLaratrainingCreateTableTrainers::table();
         DB::statement("
-            CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
-                from ".$mainTable."
+            CREATE VIEW " . self::table() . " AS(
+                SELECT 
+                    " . $mainTable . ".*,                    
+
+                    " . $handicapTable . ".name as handicap_name,              
+                    " . $handicapTable . ".type as handicap_type,              
+
+                    " . $trainerTable . ".matricule as trainer_matricule,              
+                    " . $trainerTable . ".email as trainer_email,              
+                    " . $trainerTable . ".name as trainer_name,              
+                    " . $trainerTable . ".gender as trainer_gender,              
+                    " . $trainerTable . ".phone1 as trainer_phone1,              
+                    " . $trainerTable . ".phone2 as trainer_phone2              
+
+                FROM " . $mainTable . " 
+                    LEFT JOIN " . $handicapTable . " ON " . $handicapTable . ".id = " . $mainTable . ".handicap_id
+                    LEFT JOIN " . $trainerTable . " ON " . $trainerTable . ".id = " . $mainTable . ".trainer_id
             )
         ");
     }

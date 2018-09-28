@@ -29,6 +29,7 @@ class PgLaratrainingCreateTableTrainingProposals extends PgLaratrainingMigration
             $table->string('name');
             $table->integer('total_fees');
             $table->integer('total_duration');
+            $table->integer('year');
             $table->text('description')->nullable();
             $table->integer('training_center_id')->index();
             $table->integer('training_speciality_id')->index();

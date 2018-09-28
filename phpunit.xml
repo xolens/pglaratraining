@@ -36,13 +36,14 @@
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainerDegreeRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainerDiseaseRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainerHandicapRepositoryTest.php</file>
-            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingCenterModuleRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingModuleRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalLevelRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalLevelModuleRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/StudentSubscriptionRepositoryTest.php</file>
         </testsuite>
         <testsuite name="test-repoview">
+            <file>src/Xolens/PgLaratraining/Test/CleanSchemaTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/DiseaseViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/HandicapViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/ScholarshipViewRepositoryTest.php</file>
@@ -57,7 +58,7 @@
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainerHandicapViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingCenterViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingCenterConventionViewRepositoryTest.php</file>
-            <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingCenterModuleViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingModuleViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingCenterPartnerViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingDegreeViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingProposalViewRepositoryTest.php</file>

@@ -22,10 +22,21 @@ class PgLaratrainingCreateViewTrainingCenterPartner extends PgLaratrainingMigrat
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableTrainingCenterPartners::table();
+        $trainingCenterTable = PgLaratrainingCreateTableTrainingCenters::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
-                from ".$mainTable."
+                SELECT 
+                    ".$mainTable.".*,                    
+
+                    ".$trainingCenterTable.".matricule as training_center_matricule,              
+                    ".$trainingCenterTable.".email as training_center_email,              
+                    ".$trainingCenterTable.".name as training_center_name,              
+                    ".$trainingCenterTable.".sigle as training_center_gender,              
+                    ".$trainingCenterTable.".phone1 as training_center_phone1,              
+                    ".$trainingCenterTable.".phone2 as training_center_phone2              
+
+                FROM ".$mainTable." 
+                    LEFT JOIN ".$trainingCenterTable." ON ".$trainingCenterTable.".id = ".$mainTable.".training_center_id
             )
         ");
     }

@@ -22,9 +22,35 @@ class PgLaratrainingCreateViewStudent extends PgLaratrainingMigration
     public function up()
     {
         $mainTable = PgLaratrainingCreateTableStudents::table();
+        $studentSubscriptionTable = PgLaratrainingCreateTableStudentSubscriptions::table();
+        $studentDegreeTable = PgLaratrainingCreateTableStudentDegrees::table();
+        $studentDiseaseTable = PgLaratrainingCreateTableStudentDiseases::table();
+        $studentHandicapTable = PgLaratrainingCreateTableStudentHandicaps::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
-                SELECT ".$mainTable.".id
+                SELECT 
+                    ".$mainTable.".*,
+                    (
+                        SELECT count(id) 
+                        FROM ".$studentSubscriptionTable." 
+                        WHERE ".$mainTable.".id = ".$studentSubscriptionTable.".student_id
+                    ) as subscription_count,
+                    (
+                        SELECT count(id) 
+                        FROM ".$studentDegreeTable." 
+                        WHERE ".$mainTable.".id = ".$studentDegreeTable.".student_id
+                    ) as degree_count,
+                    (
+                        SELECT count(id) 
+                        FROM ".$studentDiseaseTable." 
+                        WHERE ".$mainTable.".id = ".$studentDiseaseTable.".student_id
+                    ) as disease_count,
+                    (
+                        SELECT count(id) 
+                        FROM ".$studentHandicapTable." 
+                        WHERE ".$mainTable.".id = ".$studentHandicapTable.".student_id
+                    ) as handicap_count
+
                 from ".$mainTable."
             )
         ");
