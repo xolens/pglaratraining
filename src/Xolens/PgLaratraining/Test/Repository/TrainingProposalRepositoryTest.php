@@ -9,9 +9,9 @@ use Xolens\PgLaratraining\App\Repository\TrainingTypeRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingDegreeRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLaratraining\Test\TestPgLaratrainingBase;
+use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
-final class TrainingProposalRepositoryTest extends TestPgLaratrainingBase
+final class TrainingProposalRepositoryTest extends WritableTestPgLaratrainingBase
 {
     protected $trainingCenterRepo;
     protected $trainingSpecialityRepo;

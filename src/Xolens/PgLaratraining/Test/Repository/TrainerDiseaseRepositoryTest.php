@@ -7,9 +7,9 @@ use Xolens\PgLaratraining\App\Repository\TrainerRepository;
 use Xolens\PgLaratraining\App\Repository\DiseaseRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLaratraining\Test\TestPgLaratrainingBase;
+use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
-final class TrainerDiseaseRepositoryTest extends TestPgLaratrainingBase
+final class TrainerDiseaseRepositoryTest extends WritableTestPgLaratrainingBase
 {
     protected $trainerRepo;
     protected $diseaseRepo;

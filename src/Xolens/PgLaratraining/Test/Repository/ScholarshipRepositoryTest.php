@@ -5,9 +5,9 @@ namespace Xolens\PgLaratraining\Test\Repository;
 use Xolens\PgLaratraining\App\Repository\ScholarshipRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLaratraining\Test\TestPgLaratrainingBase;
+use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
-final class ScholarshipRepositoryTest extends TestPgLaratrainingBase
+final class ScholarshipRepositoryTest extends WritableTestPgLaratrainingBase
 {
     /**
      * Setup the test environment.

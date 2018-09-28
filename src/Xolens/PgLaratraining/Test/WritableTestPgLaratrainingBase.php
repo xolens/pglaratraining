@@ -6,7 +6,7 @@ use Xolens\PgLarautil\Test\TestCase;
 use Xolens\PgLarautil\Test\RepositoryTrait\ReadableRepositoryTestTrait;
 use Xolens\PgLarautil\Test\RepositoryTrait\WritableRepositoryTestTrait;
 
-abstract class TestPgLaratrainingBase extends TestCase
+abstract class WritableTestPgLaratrainingBase extends TestCase
 {
     use ReadableRepositoryTestTrait, WritableRepositoryTestTrait;
     

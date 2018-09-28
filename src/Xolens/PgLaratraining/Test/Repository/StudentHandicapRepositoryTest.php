@@ -7,9 +7,9 @@ use Xolens\PgLaratraining\App\Repository\StudentRepository;
 use Xolens\PgLaratraining\App\Repository\HandicapRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLaratraining\Test\TestPgLaratrainingBase;
+use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
-final class StudentHandicapRepositoryTest extends TestPgLaratrainingBase
+final class StudentHandicapRepositoryTest extends WritableTestPgLaratrainingBase
 {
     protected $studentRepo;
     protected $handicapRepo;

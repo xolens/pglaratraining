@@ -6,9 +6,9 @@ use Xolens\PgLaratraining\App\Repository\TrainingProposalLevelRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingProposalRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLaratraining\Test\TestPgLaratrainingBase;
+use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
-final class TrainingProposalLevelRepositoryTest extends TestPgLaratrainingBase
+final class TrainingProposalLevelRepositoryTest extends WritableTestPgLaratrainingBase
 {
     protected $trainingProposalRepo;
     /**
