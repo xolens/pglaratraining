@@ -30,17 +30,17 @@ class PgLaratrainingCreateViewTrainingCenter extends PgLaratrainingMigration
                 SELECT 
                     ".$mainTable.".*,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$conventionTable.".id) 
                         FROM ".$conventionTable." 
                         WHERE ".$mainTable.".id = ".$conventionTable.".training_center_id
                     ) as convention_count,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$partnerTable.".id) 
                         FROM ".$partnerTable." 
                         WHERE ".$mainTable.".id = ".$partnerTable.".training_center_id
                     ) as partner_count,
                     (
-                        SELECT count(DISTINCT training_speciality_id) 
+                        SELECT count(DISTINCT ".$trainingProposalTable.".training_speciality_id) 
                         FROM ".$trainingProposalTable." 
                         WHERE ".$mainTable.".id = ".$trainingProposalTable.".training_center_id
                     ) as speciality_count

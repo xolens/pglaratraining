@@ -41,7 +41,7 @@ class PgLaratrainingCreateTableTrainingCenters extends PgLaratrainingMigration
             $table->date('creation_order_date');
             $table->integer('opening_year');
             $table->string('promoter_name')->nullable();;
-            $table->string('promoter_gender')->nullable();; // Enum
+            $table->enum('promoter_gender',['M','F'])->nullable();
             
             $table->integer('local_array')->nullable();
             $table->boolean('local_title')->default(false);

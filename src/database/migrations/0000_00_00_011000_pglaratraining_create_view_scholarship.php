@@ -23,15 +23,28 @@ class PgLaratrainingCreateViewScholarship extends PgLaratrainingMigration
     {
         $mainTable = PgLaratrainingCreateTableScholarships::table();
         $studentSubscriptionTable = PgLaratrainingCreateTableStudentSubscriptions::table();
+        $studentTable = PgLaratrainingCreateTableStudents::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
                     ".$mainTable.".*,
                     (
-                        SELECT count(id) 
+                        SELECT count(DISTINCT ".$studentSubscriptionTable.".student_id) 
                         FROM ".$studentSubscriptionTable." 
                         WHERE ".$mainTable.".id = ".$studentSubscriptionTable.".scholarship_id
-                    ) as student_count
+                    ) as student_count,
+                    (
+                        SELECT count(DISTINCT ".$studentTable.".id) 
+                        FROM ".$studentSubscriptionTable." 
+                        LEFT JOIN ".$studentTable." ON ".$studentTable.".id = ".$studentSubscriptionTable.".student_id
+                        WHERE ".$mainTable.".id = ".$studentSubscriptionTable.".scholarship_id AND ".$studentTable.".gender = 'M'
+                    ) as student_m_count,
+                    (
+                        SELECT count(DISTINCT ".$studentTable.".id) 
+                        FROM ".$studentSubscriptionTable." 
+                        LEFT JOIN ".$studentTable." ON ".$studentTable.".id = ".$studentSubscriptionTable.".student_id
+                        WHERE ".$mainTable.".id = ".$studentSubscriptionTable.".scholarship_id AND ".$studentTable.".gender = 'F'
+                    ) as student_f_count
                 from ".$mainTable."
             )
         ");

@@ -4,6 +4,7 @@ namespace Xolens\PgLaratraining\Test\Repository;
 
 use Xolens\PgLaratraining\App\Repository\TrainingProposalLevelModuleRepository;
 use Xolens\PgLaratraining\App\Repository\TrainerRepository;
+use Xolens\PgLaratraining\App\Repository\TrainingModuleRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingProposalLevelRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
@@ -13,6 +14,7 @@ final class TrainingProposalLevelModuleRepositoryTest extends WritableTestPgLara
 {
     protected $trainerRepo;
     protected $trainingProposalLevelRepo;
+    protected $trainingModuleRepo;
     /**
      * Setup the test environment.
      */
@@ -22,6 +24,7 @@ final class TrainingProposalLevelModuleRepositoryTest extends WritableTestPgLara
         $repo = new TrainingProposalLevelModuleRepository();
         $this->trainerRepo = new TrainerRepository();
         $this->trainingProposalLevelRepo = new TrainingProposalLevelRepository();
+        $this->trainingModuleRepo = new TrainingModuleRepository();
         $this->repo = $repo;
     }
 
@@ -32,11 +35,13 @@ final class TrainingProposalLevelModuleRepositoryTest extends WritableTestPgLara
         $i = rand(0, 10000);
         $trainerId = $this->trainerRepo->model()::inRandomOrder()->first()->id;
         $trainingProposalLevelId = $this->trainingProposalLevelRepo->model()::inRandomOrder()->first()->id;
+        $trainingModuleId = $this->trainingModuleRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
             "name" => "name".$i,
             "description" => "description".$i,
             "trainer_id" => $trainerId,
             "training_proposal_level_id" => $trainingProposalLevelId,
+            "training_module_id" => $trainingModuleId,
         ]);
         $this->assertTrue(true);
     }
@@ -62,14 +67,16 @@ final class TrainingProposalLevelModuleRepositoryTest extends WritableTestPgLara
         $generatedItemsId = [];
         
         for($i=$count; $i<($toGenerateCount+$count); $i++){
-                $trainerId = $this->trainerRepo->model()::inRandomOrder()->first()->id;
-                $trainingProposalLevelId = $this->trainingProposalLevelRepo->model()::inRandomOrder()->first()->id;
+            $trainerId = $this->trainerRepo->model()::inRandomOrder()->first()->id;
+            $trainingProposalLevelId = $this->trainingProposalLevelRepo->model()::inRandomOrder()->first()->id;
+            $trainingModuleId = $this->trainingModuleRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
                 "name" => "name".$i,
                 "description" => "description".$i,
-            "trainer_id" => $trainerId,
-            "training_proposal_level_id" => $trainingProposalLevelId,
-            ]);
+                "trainer_id" => $trainerId,
+                "training_proposal_level_id" => $trainingProposalLevelId,
+                "training_module_id" => $trainingModuleId, 
+                ]);
             $generatedItemsId[] = $item->response()->id;
         }
         $this->assertEquals(count($generatedItemsId), $toGenerateCount);

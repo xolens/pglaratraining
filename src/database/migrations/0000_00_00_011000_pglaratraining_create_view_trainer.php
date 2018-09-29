@@ -30,17 +30,17 @@ class PgLaratrainingCreateViewTrainer extends PgLaratrainingMigration
                 SELECT 
                     ".$mainTable.".*,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$trainerDegreeTable.".id) 
                         FROM ".$trainerDegreeTable." 
                         WHERE ".$mainTable.".id = ".$trainerDegreeTable.".trainer_id
                     ) as degree_count,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$trainerDiseaseTable.".id) 
                         FROM ".$trainerDiseaseTable." 
                         WHERE ".$mainTable.".id = ".$trainerDiseaseTable.".trainer_id
                     ) as disease_count,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$trainerHandicapTable.".id) 
                         FROM ".$trainerHandicapTable." 
                         WHERE ".$mainTable.".id = ".$trainerHandicapTable.".trainer_id
                     ) as handicap_count

@@ -26,6 +26,11 @@ class PgLaratrainingCreateViewTrainingProposal extends PgLaratrainingMigration
         $trainingSpecialitieTable = PgLaratrainingCreateTableTrainingSpecialities::table();
         $trainingTypeTable = PgLaratrainingCreateTableTrainingTypes::table();
         $trainingCenterTable = PgLaratrainingCreateTableTrainingCenters::table();
+        $trainingProposalTable = PgLaratrainingCreateTableTrainingProposals::table();
+        
+        $studentTable = PgLaratrainingCreateTableStudents::table();
+        $trainingProposalLevelTable = PgLaratrainingCreateTableTrainingProposalLevels::table();
+        $studentSubscriptionTable = PgLaratrainingCreateTableStudentSubscriptions::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 

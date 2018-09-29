@@ -31,22 +31,22 @@ class PgLaratrainingCreateViewStudent extends PgLaratrainingMigration
                 SELECT 
                     ".$mainTable.".*,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$studentSubscriptionTable.".id) 
                         FROM ".$studentSubscriptionTable." 
                         WHERE ".$mainTable.".id = ".$studentSubscriptionTable.".student_id
                     ) as subscription_count,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$studentDegreeTable.".id) 
                         FROM ".$studentDegreeTable." 
                         WHERE ".$mainTable.".id = ".$studentDegreeTable.".student_id
                     ) as degree_count,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$studentDiseaseTable.".id) 
                         FROM ".$studentDiseaseTable." 
                         WHERE ".$mainTable.".id = ".$studentDiseaseTable.".student_id
                     ) as disease_count,
                     (
-                        SELECT count(id) 
+                        SELECT count(".$studentHandicapTable.".id) 
                         FROM ".$studentHandicapTable." 
                         WHERE ".$mainTable.".id = ".$studentHandicapTable.".student_id
                     ) as handicap_count

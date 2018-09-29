@@ -29,7 +29,7 @@ class PgLaratrainingCreateTableTrainers extends PgLaratrainingMigration
             $table->string('matricule')->unique();
             $table->string('email')->unique();
             $table->string('name');
-            $table->string('gender'); // Enum
+            $table->enum('gender',['M','F']);
             $table->date('birth_date');
             $table->string('birth_place');
             $table->string('phone1')->nullable();

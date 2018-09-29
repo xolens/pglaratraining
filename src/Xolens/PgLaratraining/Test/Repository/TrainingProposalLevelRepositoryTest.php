@@ -63,16 +63,16 @@ final class TrainingProposalLevelRepositoryTest extends WritableTestPgLaratraini
         
         for($i=$count; $i<($toGenerateCount+$count); $i++){
                 $trainingProposalId = $this->trainingProposalRepo->model()::inRandomOrder()->first()->id;
-            $item = $this->repository()->create([
-                "name" => "name".$i,
-                "session" => "Janvier 201".$i,
-                "duration" => 7*$i,
-                "registration_fees" => 76300*$i,
-                "training_fees" => 350*$i,
-                "training_capacity" => 67*$i,
-                "description" => "description".$i,
-            "training_proposal_id" => $trainingProposalId,
-            ]);
+                $item = $this->repository()->create([
+                    "name" => "name".$i,
+                    "session" => "Janvier 201".$i,
+                    "duration" => 7*$i,
+                    "registration_fees" => 76300*$i,
+                    "training_fees" => 350*$i,
+                    "training_capacity" => 67*$i,
+                    "description" => "description".$i,
+                    "training_proposal_id" => $trainingProposalId,
+                ]);
             $generatedItemsId[] = $item->response()->id;
         }
         $this->assertEquals(count($generatedItemsId), $toGenerateCount);

@@ -43,7 +43,6 @@
             <file>src/Xolens/PgLaratraining/Test/Repository/StudentSubscriptionRepositoryTest.php</file>
         </testsuite>
         <testsuite name="test-repoview">
-            <file>src/Xolens/PgLaratraining/Test/CleanSchemaTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/DiseaseViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/HandicapViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/ScholarshipViewRepositoryTest.php</file>

@@ -19,7 +19,7 @@ class TrainingProposalLevel extends Model
      */
     protected $fillable = [
         'id','name', 'session', 'duration','registration_fees','training_fees',
-        'training_capacity','description','training_proposal_id'
+        'training_capacity','description','training_proposal_id',
     ];
 
     /**

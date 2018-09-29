@@ -19,7 +19,7 @@ class TrainingProposalLevelModule extends Model
      */
     protected $fillable = [
         'id','name','description',
-        'trainer_id','training_proposal_level_id',
+        'trainer_id','training_proposal_level_id','training_module_id',
     ];
 
     /**
