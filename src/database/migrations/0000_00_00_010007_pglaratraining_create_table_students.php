@@ -26,14 +26,14 @@ class PgLaratrainingCreateTableStudents extends PgLaratrainingMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('matricule')->unique();
+            $table->string('matricule')->unique()->nullable();
             $table->string('email')->unique();
             $table->string('name');
             $table->enum('gender',['M','F']);
             
             $table->date('birth_date');
             $table->string('birth_place');
-            $table->string('phone1')->nullable();
+            $table->string('phone1')->unique();
             $table->string('phone2')->nullable();
             $table->string('person_to_contact')->nullable();
             $table->text('person_to_contact_description')->nullable();

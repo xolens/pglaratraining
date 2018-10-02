@@ -26,13 +26,13 @@ class PgLaratrainingCreateTableTrainers extends PgLaratrainingMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('matricule')->unique();
+            $table->string('matricule')->nullable()->unique();
             $table->string('email')->unique();
             $table->string('name');
             $table->enum('gender',['M','F']);
             $table->date('birth_date');
             $table->string('birth_place');
-            $table->string('phone1')->nullable();
+            $table->string('phone1')->unique();
             $table->string('phone2')->nullable();
             $table->text('description')->nullable();
         });
@@ -52,6 +52,5 @@ class PgLaratrainingCreateTableTrainers extends PgLaratrainingMigration
             self::unregisterFromLog();
         }
         Schema::dropIfExists(self::table());
-
     }
 }
