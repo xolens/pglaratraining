@@ -5,6 +5,7 @@ namespace Xolens\PgLaratraining\App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 use PgLaratrainingCreateTableStudents;
+use Xolens\LarautilContract\App\Util\Format\Formater;
 
 
 
@@ -34,5 +35,24 @@ class Student extends Model
     function __construct(array $attributes = []) {
         $this->table = PgLaratrainingCreateTableStudents::table();
         parent::__construct($attributes);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($model){
+            $model->phone1 = Formater::formatPhone($model->phone1);
+            $model->phone2 = Formater::formatPhone($model->phone2);
+            $model->person_to_contact_phone_1 = Formater::formatPhone($model->person_to_contact_phone_1);
+            $model->person_to_contact_phone_2 = Formater::formatPhone($model->person_to_contact_phone_2);
+        });
+        
+        self::updating(function($model){
+            $model->phone1 = Formater::formatPhone($model->phone1);
+            $model->phone2 = Formater::formatPhone($model->phone2);
+            $model->person_to_contact_phone_1 = Formater::formatPhone($model->person_to_contact_phone_1);
+            $model->person_to_contact_phone_2 = Formater::formatPhone($model->person_to_contact_phone_2);
+        });
     }
 }
