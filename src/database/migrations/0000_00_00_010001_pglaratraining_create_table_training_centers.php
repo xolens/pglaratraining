@@ -26,7 +26,7 @@ class PgLaratrainingCreateTableTrainingCenters extends PgLaratrainingMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('matricule')->unique();
+            $table->string('matricule')->unique()->nullable();
             $table->string('email')->unique();
             
             $table->string('name');
@@ -37,20 +37,20 @@ class PgLaratrainingCreateTableTrainingCenters extends PgLaratrainingMigration
             $table->string('phone2')->nullable();
             $table->string('website')->nullable();
             $table->integer('creation_year');
-            $table->string('creation_order_number');
-            $table->date('creation_order_date');
-            $table->integer('opening_year');
+            $table->string('creation_order_number')->nullable();
+            $table->date('creation_order_date')->nullable();
+            $table->integer('opening_year')->nullable();
             $table->string('promoter_name')->nullable();;
             $table->enum('promoter_gender',['M','F'])->nullable();
             
             $table->integer('local_array')->nullable();
             $table->boolean('local_title')->default(false);
-            $table->string('local_property'); // Enum
+            $table->string('local_property')->nullable(); // Enum
             $table->string('manager_name')->nullable();;
             $table->string('center_type'); // Enum
             $table->string('center_order'); // Enum
-            $table->timestamp('approval_date');
-            $table->string('approval_order_number');
+            $table->date('approval_date')->nullable();
+            $table->string('approval_order_number')->nullable();
             $table->text('description')->nullable();
         });
         if(self::logEnabled()){

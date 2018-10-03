@@ -5,6 +5,7 @@ namespace Xolens\PgLaratraining\App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 use PgLaratrainingCreateTableTrainingCenters;
+use Xolens\LarautilContract\App\Util\Format\Formater;
 
 class TrainingCenter extends Model
 {
@@ -36,5 +37,20 @@ class TrainingCenter extends Model
     function __construct(array $attributes = []) {
         $this->table = PgLaratrainingCreateTableTrainingCenters::table();
         parent::__construct($attributes);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($model){
+            $model->phone1 = Formater::formatPhone($model->phone1);
+            $model->phone2 = Formater::formatPhone($model->phone2);
+        });
+        
+        self::updating(function($model){
+            $model->phone1 = Formater::formatPhone($model->phone1);
+            $model->phone2 = Formater::formatPhone($model->phone2);
+        });
     }
 }

@@ -26,7 +26,7 @@ final class TrainingCenterRepositoryTest extends WritableTestPgLaratrainingBase
         $i = rand(0, 10000);
         $item = $this->repository()->make([
             "matricule" => "matricule".$i,
-            "email" => "email".$i,
+            "email" => "email".$i."@test.com",
             "name" => "name".$i,
             "sigle" => "sigle".$i,
             "mailbox_number" => "mailbox_number".$i,
@@ -76,7 +76,7 @@ final class TrainingCenterRepositoryTest extends WritableTestPgLaratrainingBase
         for($i=$count; $i<($toGenerateCount+$count); $i++){
             $item = $this->repository()->create([
                 "matricule" => "matricule".$i,
-                "email" => "email".$i,
+                "email" => "email".$i."@test.com",
                 "name" => "name".$i,
                 "sigle" => "sigle".$i,
                 "mailbox_number" => "mailbox_number".$i,
