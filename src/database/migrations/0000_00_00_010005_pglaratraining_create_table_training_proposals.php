@@ -34,8 +34,9 @@ class PgLaratrainingCreateTableTrainingProposals extends PgLaratrainingMigration
             $table->integer('training_center_id')->index();
             $table->integer('training_speciality_id')->index();
             $table->integer('training_type_id')->index();
-            $table->integer('training_degree_id')->index();
-
+            $table->integer('training_degree_id')->index()->nullable();
+            
+            $table->unique(['name', 'training_center_id']);
         });
         if(self::logEnabled()){
             self::registerForLog();
