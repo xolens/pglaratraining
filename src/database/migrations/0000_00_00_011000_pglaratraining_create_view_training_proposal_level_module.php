@@ -24,6 +24,7 @@ class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratraining
         $mainTable = PgLaratrainingCreateTableTrainingProposalLevelModules::table();
         $trainingModuleTable = PgLaratrainingCreateTableTrainingModules::table();
         $trainingProposalLevelTable = PgLaratrainingCreateTableTrainingProposalLevels::table();
+        $trainerTable = PgLaratrainingCreateTableTrainers::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
@@ -32,10 +33,18 @@ class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratraining
                     ".$trainingModuleTable.".name as training_module_name,              
 
                     ".$trainingProposalLevelTable.".name as training_proposal_level_name,              
-                    ".$trainingProposalLevelTable.".session as training_proposal_level_session
+                    ".$trainingProposalLevelTable.".session as training_proposal_level_session,
+
+                    ".$trainerTable.".matricule as trainer_matricule,              
+                    ".$trainerTable.".email as trainer_email,              
+                    ".$trainerTable.".name as trainer_name,              
+                    ".$trainerTable.".gender as trainer_gender,              
+                    ".$trainerTable.".phone1 as trainer_phone1,              
+                    ".$trainerTable.".phone2 as trainer_phone2      
                 FROM ".$mainTable." 
                     LEFT JOIN ".$trainingModuleTable." ON ".$trainingModuleTable.".id = ".$mainTable.".training_module_id
                     LEFT JOIN ".$trainingProposalLevelTable." ON ".$trainingProposalLevelTable.".id = ".$mainTable.".training_proposal_level_id
+                    LEFT JOIN ".$trainerTable." ON ".$trainerTable.".id = ".$mainTable.".trainer_id
             )
         ");
     }

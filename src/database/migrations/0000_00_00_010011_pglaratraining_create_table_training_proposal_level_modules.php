@@ -26,8 +26,6 @@ class PgLaratrainingCreateTableTrainingProposalLevelModules extends PgLaratraini
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name'); // Enum
-            $table->text('description')->nullable();
             $table->integer('trainer_id')->index();
             $table->integer('training_module_id')->index();
             $table->integer('training_proposal_level_id')->index();

@@ -33,7 +33,7 @@ class PgLaratrainingCreateViewTrainingModule extends PgLaratrainingMigration
                         FROM ".$trainingProposalLevelModule."
                         LEFT JOIN ".$trainingProposalLevel." ON ".$trainingProposalLevel.".id = ".$trainingProposalLevelModule.".training_proposal_level_id
                         WHERE ".$mainTable.".id = ".$trainingProposalLevelModule.".training_module_id
-                    ) as training_proposal_count
+                    ) as training_proposal_level_count
 
                 from ".$mainTable."
             )
