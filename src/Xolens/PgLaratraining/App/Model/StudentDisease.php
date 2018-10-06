@@ -10,6 +10,9 @@ use PgLaratrainingCreateTableStudentDiseases;
 
 class StudentDisease extends Model
 {
+    public const STUDENT_PROPERTY = "student_id";
+    public const DISEASE_PROPERTY = "disease_id";
+
     public $timestamps = false;
 
     /**
