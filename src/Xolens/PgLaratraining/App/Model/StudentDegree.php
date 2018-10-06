@@ -10,6 +10,9 @@ use PgLaratrainingCreateTableStudentDegrees;
 
 class StudentDegree extends Model
 {
+    public const STUDENT_PROPERTY = "student_id";
+    public const TRAINING_DEGREE_PROPERTY = "training_degree_id";
+
     public $timestamps = false;
 
     /**

@@ -10,6 +10,10 @@ use PgLaratrainingCreateTableStudentSubscriptions;
 
 class StudentSubscription extends Model
 {
+    public const STUDENT_PROPERTY = "student_id";
+    public const SCHOLARSHIP_PROPERTY = "scholarship_id";
+    public const TRAINING_PROPOSAL_PROPERTY = "training_proposal_id";
+
     public $timestamps = false;
 
     /**
