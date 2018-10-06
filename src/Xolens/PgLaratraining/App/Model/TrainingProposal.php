@@ -10,6 +10,11 @@ use PgLaratrainingCreateTableTrainingProposals;
 
 class TrainingProposal extends Model
 {
+    public const TRAINING_CENTER_PROPERTY = "training_center_id";
+    public const TRAINING_SPECIALITY_PROPERTY = "training_speciality_id";
+    public const TRAINING_TYPE_PROPERTY = "training_type_id";
+    public const TRAINING_DEGREE_PROPERTY = "training_degree_id";
+
     public $timestamps = false;
 
     /**
