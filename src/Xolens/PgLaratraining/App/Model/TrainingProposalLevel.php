@@ -10,6 +10,8 @@ use PgLaratrainingCreateTableTrainingProposalLevels;
 
 class TrainingProposalLevel extends Model
 {
+    public const TRAINING_PROPOSAL_PROPERTY = "training_proposal_id";
+
     public $timestamps = false;
 
     /**

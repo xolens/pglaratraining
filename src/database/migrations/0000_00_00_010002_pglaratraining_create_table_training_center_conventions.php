@@ -29,7 +29,7 @@ class PgLaratrainingCreateTableTrainingCenterConventions extends PgLaratrainingM
             $table->string('name');
             $table->string('type'); // Enum
             $table->text('description')->nullable();
-            $table->integer('training_center_id')->nullable()->index();
+            $table->integer('training_center_id')->index();
         });
         if(self::logEnabled()){
             self::registerForLog();

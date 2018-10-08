@@ -10,6 +10,8 @@ use PgLaratrainingCreateTableTrainingCenterPartners;
 
 class TrainingCenterPartner extends Model
 {
+    public const TRAINING_CENTER_PROPERTY = "training_center_id";
+    
     public $timestamps = false;
 
     /**
