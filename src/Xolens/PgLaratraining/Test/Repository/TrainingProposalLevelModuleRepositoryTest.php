@@ -37,8 +37,6 @@ final class TrainingProposalLevelModuleRepositoryTest extends WritableTestPgLara
         $trainingProposalLevelId = $this->trainingProposalLevelRepo->model()::inRandomOrder()->first()->id;
         $trainingModuleId = $this->trainingModuleRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
-            "name" => "name".$i,
-            "description" => "description".$i,
             "trainer_id" => $trainerId,
             "training_proposal_level_id" => $trainingProposalLevelId,
             "training_module_id" => $trainingModuleId,
@@ -50,15 +48,13 @@ final class TrainingProposalLevelModuleRepositoryTest extends WritableTestPgLara
 
     public function generateSorter(){
         $sorter = new Sorter();
-        $sorter->asc('id')
-                ->asc('name');
+        $sorter->asc('id');
         return $sorter;
     }
 
     public function generateFilterer(){
         $filterer = new Filterer();
-        $filterer->between('id',[0,14])
-                ->like('name','%tab%');
+        $filterer->between('id',[0,14]);
         return $filterer;
     }
 
@@ -71,8 +67,6 @@ final class TrainingProposalLevelModuleRepositoryTest extends WritableTestPgLara
             $trainingProposalLevelId = $this->trainingProposalLevelRepo->model()::inRandomOrder()->first()->id;
             $trainingModuleId = $this->trainingModuleRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
-                "name" => "name".$i,
-                "description" => "description".$i,
                 "trainer_id" => $trainerId,
                 "training_proposal_level_id" => $trainingProposalLevelId,
                 "training_module_id" => $trainingModuleId, 

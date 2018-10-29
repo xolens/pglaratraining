@@ -3,7 +3,7 @@
 namespace Xolens\PgLaratraining\App\Repository;
 
 use Xolens\PgLaratraining\App\Model\StudentDisease;
-use Xolens\LaratrainingContract\App\Repository\Contract\StudentDiseaseRepositoryContract;
+use Xolens\LaratrainingContract\App\Contract\Repository\StudentDiseaseRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLaratrainingCreateTableStudentDiseases;

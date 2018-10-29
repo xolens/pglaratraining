@@ -4,7 +4,7 @@ namespace Xolens\PgLaratraining\App\Repository\View;
 
 use Xolens\PgLaratraining\App\Model\View\TrainingProposalView;
 use Xolens\PgLaratraining\App\Model\TrainingProposal;
-use Xolens\LaratrainingContract\App\Repository\View\Contract\TrainingProposalViewRepositoryContract;
+use Xolens\LaratrainingContract\App\Contract\Repository\View\TrainingProposalViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use Xolens\LarautilContract\App\Util\Model\Sorter;

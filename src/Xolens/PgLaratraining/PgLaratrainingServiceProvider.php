@@ -13,7 +13,7 @@ class PgLaratrainingServiceProvider extends ServiceProvider
         $this->app->register(PgLarautilServiceProvider::class);
 
         $this->publishes([
-            __DIR__.'/../../config/xolens-config.php' => config_path('xolens-config.php'),
+            __DIR__.'/../../config/xolens-pglaratraining.php' => config_path('xolens-pglaratraining.php'),
         ]);
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
@@ -21,7 +21,7 @@ class PgLaratrainingServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/xolens-config.php', 'xolens-config'
+            __DIR__.'/../../config/xolens-pglaratraining.php', 'xolens-pglaratraining'
         );
     }
 }

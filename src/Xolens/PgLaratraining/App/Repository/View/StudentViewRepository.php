@@ -3,7 +3,7 @@
 namespace Xolens\PgLaratraining\App\Repository\View;
 
 use Xolens\PgLaratraining\App\Model\View\StudentView;
-use Xolens\LaratrainingContract\App\Repository\View\Contract\StudentViewRepositoryContract;
+use Xolens\LaratrainingContract\App\Contract\Repository\View\StudentViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
 
 class StudentViewRepository extends AbstractReadableRepository implements StudentViewRepositoryContract

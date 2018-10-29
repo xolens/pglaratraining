@@ -3,7 +3,7 @@
 namespace Xolens\PgLaratraining\App\Repository;
 
 use Xolens\PgLaratraining\App\Model\TrainingModule;
-use Xolens\LaratrainingContract\App\Repository\Contract\TrainingModuleRepositoryContract;
+use Xolens\LaratrainingContract\App\Contract\Repository\TrainingModuleRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLaratrainingCreateTableTrainingModules;
