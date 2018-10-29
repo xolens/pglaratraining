@@ -17,12 +17,12 @@ class StudentSubscriptionRepository extends AbstractWritableRepository implement
     public function validationRules(array $data){
         $id = self::get($data,'id');
         $studentId = self::get($data,'student_id');
-        $trainingProposalLevelId = self::get($data,'training_proposal_level_id');
+        $trainingProposalId = self::get($data,'training_proposal_id');
         return [
-            'student_id' => ['required',Rule::unique(PgLaratrainingCreateViewStudentSubscription::table())->where(function ($query) use($id, $studentId,$trainingProposalLevelId) {
+            'student_id' => ['required',Rule::unique(PgLaratrainingCreateViewStudentSubscription::table())->where(function ($query) use($id, $studentId,$trainingProposalId) {
                 return $query->where('id','!=', $id)
                 ->where('student_id', $studentId)
-                ->where('training_proposal_level_id', $trainingProposalLevelId);
+                ->where('training_proposal_id', $trainingProposalId);
             })
         ],];
     }

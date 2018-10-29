@@ -5,7 +5,7 @@ namespace Xolens\PgLaratraining\Test\Repository;
 use Xolens\PgLaratraining\App\Repository\StudentSubscriptionRepository;
 use Xolens\PgLaratraining\App\Repository\StudentRepository;
 use Xolens\PgLaratraining\App\Repository\ScholarshipRepository;
-use Xolens\PgLaratraining\App\Repository\TrainingProposalLevelRepository;
+use Xolens\PgLaratraining\App\Repository\TrainingProposalRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
@@ -14,7 +14,7 @@ final class StudentSubscriptionRepositoryTest extends WritableTestPgLaratraining
 {
     protected $studentRepo;
     protected $scholarshipRepo;
-    protected $trainingProposalLevelRepo;
+    protected $trainingProposalRepo;
     /**
      * Setup the test environment.
      */
@@ -24,7 +24,7 @@ final class StudentSubscriptionRepositoryTest extends WritableTestPgLaratraining
         $repo = new StudentSubscriptionRepository();
         $this->studentRepo = new StudentRepository();
         $this->scholarshipRepo = new ScholarshipRepository();
-        $this->trainingProposalLevelRepo = new TrainingProposalLevelRepository();
+        $this->trainingProposalRepo = new TrainingProposalRepository();
         $this->repo = $repo;
     }
 
@@ -35,12 +35,12 @@ final class StudentSubscriptionRepositoryTest extends WritableTestPgLaratraining
         $i = rand(0, 10000);
         $studentId = $this->studentRepo->model()::inRandomOrder()->first()->id;
         $scholarshipId = $this->scholarshipRepo->model()::inRandomOrder()->first()->id;
-        $trainingProposalLevelId = $this->trainingProposalLevelRepo->model()::inRandomOrder()->first()->id;
+        $trainingProposalId = $this->trainingProposalRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
             "subscription_state" => "subscription_state".$i,
             "student_id" => $studentId,
             "scholarship_id" => $scholarshipId,
-            "training_proposal_level_id" => $trainingProposalLevelId,
+            "training_proposal_id" => $trainingProposalId,
         ]);
         $this->assertTrue(true);
     }
@@ -67,12 +67,12 @@ final class StudentSubscriptionRepositoryTest extends WritableTestPgLaratraining
         for($i=$count; $i<($toGenerateCount+$count); $i++){
                 $studentId = $this->studentRepo->model()::inRandomOrder()->first()->id;
                 $scholarshipId = $this->scholarshipRepo->model()::inRandomOrder()->first()->id;
-                $trainingProposalLevelId = $this->trainingProposalLevelRepo->model()::inRandomOrder()->first()->id;
+                $trainingProposalId = $this->trainingProposalRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
                 "subscription_state" => "subscription_state".$i,
             "student_id" => $studentId,
             "scholarship_id" => $scholarshipId,
-            "training_proposal_level_id" => $trainingProposalLevelId,
+            "training_proposal_id" => $trainingProposalId,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

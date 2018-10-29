@@ -12,7 +12,7 @@ class StudentSubscription extends Model
 {
     public const STUDENT_PROPERTY = "student_id";
     public const SCHOLARSHIP_PROPERTY = "scholarship_id";
-    public const TRAINING_PROPOSAL_LEVEL_PROPERTY = "training_proposal_level_id";
+    public const TRAINING_PROPOSAL_PROPERTY = "training_proposal_id";
 
     public $timestamps = false;
 
@@ -22,7 +22,7 @@ class StudentSubscription extends Model
      * @var array
      */
     protected $fillable = [
-        'id','subscription_state','student_id','scholarship_id','training_proposal_level_id'
+        'id','subscription_state','student_id','scholarship_id','training_proposal_id'
     ];
 
     /**

@@ -27,9 +27,14 @@ class PgLaratrainingCreateTableTrainingProposals extends PgLaratrainingMigration
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('total_fees');
-            $table->integer('total_duration');
             $table->integer('year');
+
+            $table->integer('duration');
+            $table->string('session');
+            $table->integer('registration_fees');
+            $table->integer('training_fees');
+            $table->integer('training_capacity');
+
             $table->text('description')->nullable();
             $table->integer('training_center_id')->index();
             $table->integer('training_speciality_id')->index();

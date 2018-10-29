@@ -29,7 +29,7 @@ class PgLaratrainingCreateTableStudentSubscriptions extends PgLaratrainingMigrat
             $table->string('subscription_state'); // Enum
             $table->integer('student_id')->index();
             $table->integer('scholarship_id')->nullable()->index();
-            $table->integer('training_proposal_level_id')->index();
+            $table->integer('training_proposal_id')->index();
         });
         if(self::logEnabled()){
             self::registerForLog();

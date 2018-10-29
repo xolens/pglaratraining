@@ -24,7 +24,6 @@ class PgLaratrainingCreateViewStudentSubscription extends PgLaratrainingMigratio
         $mainTable = PgLaratrainingCreateTableStudentSubscriptions::table();
         $studentTable = PgLaratrainingCreateTableStudents::table();
         $studentScholarshipTable = PgLaratrainingCreateTableScholarships::table();
-        $trainingProposalLevelTable = PgLaratrainingCreateTableTrainingProposalLevels::table();
         $trainingProposalTable = PgLaratrainingCreateTableTrainingProposals::table();
         $trainingCenterTable = PgLaratrainingCreateTableTrainingCenters::table();
         $trainingSpecialityTable = PgLaratrainingCreateTableTrainingSpecialities::table();
@@ -44,12 +43,12 @@ class PgLaratrainingCreateViewStudentSubscription extends PgLaratrainingMigratio
                     ".$studentScholarshipTable.".name as scholarship_name,              
                     ".$studentScholarshipTable.".value as scholarship_value,              
 
-                    ".$trainingProposalLevelTable.".name as training_proposal_level_name,              
-                    ".$trainingProposalLevelTable.".duration as training_proposal_level_duration,
-                    ".$trainingProposalLevelTable.".session as training_proposal_level_session,
-                    ".$trainingProposalLevelTable.".registration_fees as training_proposal_level_registration_fees,
-                    ".$trainingProposalLevelTable.".registration_fees + ".$trainingProposalLevelTable.".training_fees 
-                        as training_proposal_level_fees,
+                    ".$trainingProposalTable.".name as training_proposal_name,              
+                    ".$trainingProposalTable.".duration as training_proposal_duration,
+                    ".$trainingProposalTable.".session as training_proposal_session,
+                    ".$trainingProposalTable.".registration_fees as training_proposal_registration_fees,
+                    ".$trainingProposalTable.".registration_fees + ".$trainingProposalTable.".training_fees 
+                        as training_proposal_fees,
                         
                     ".$trainingProposalTable.".year as training_proposal_year,
 
@@ -64,8 +63,7 @@ class PgLaratrainingCreateViewStudentSubscription extends PgLaratrainingMigratio
                 FROM ".$mainTable." 
                     LEFT JOIN ".$studentTable." ON ".$studentTable.".id = ".$mainTable.".student_id
                     LEFT JOIN ".$studentScholarshipTable." ON ".$studentScholarshipTable.".id = ".$mainTable.".scholarship_id
-                    LEFT JOIN ".$trainingProposalLevelTable." ON ".$trainingProposalLevelTable.".id = ".$mainTable.".training_proposal_level_id
-                    LEFT JOIN ".$trainingProposalTable." ON ".$trainingProposalTable.".id = ".$trainingProposalLevelTable.".training_proposal_id
+                    LEFT JOIN ".$trainingProposalTable." ON ".$trainingProposalTable.".id = ".$mainTable.".training_proposal_id
                     LEFT JOIN ".$trainingCenterTable." ON ".$trainingCenterTable.".id = ".$trainingProposalTable.".training_center_id
                     LEFT JOIN ".$trainingSpecialityTable." ON ".$trainingSpecialityTable.".id = ".$trainingProposalTable.".training_speciality_id
             )

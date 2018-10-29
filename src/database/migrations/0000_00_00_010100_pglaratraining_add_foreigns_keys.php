@@ -27,18 +27,15 @@ class PgLaratrainingAddForeignsKeys extends Migration
             $table->foreign('training_type_id')->references('id')->on(PgLaratrainingCreateTableTrainingTypes::table())->onDelete('cascade');      
             $table->foreign('training_degree_id')->references('id')->on(PgLaratrainingCreateTableTrainingDegrees::table())->onDelete('cascade');      
         });
-        Schema::table(PgLaratrainingCreateTableTrainingProposalLevels::table(), function (Blueprint $table) {
-            $table->foreign('training_proposal_id')->references('id')->on(PgLaratrainingCreateTableTrainingProposals::table())->onDelete('cascade');      
-        });
         Schema::table(PgLaratrainingCreateTableStudentSubscriptions::table(), function (Blueprint $table) {
             $table->foreign('student_id')->references('id')->on(PgLaratrainingCreateTableStudents::table())->onDelete('cascade');      
             $table->foreign('scholarship_id')->references('id')->on(PgLaratrainingCreateTableScholarships::table())->onDelete('cascade');      
-            $table->foreign('training_proposal_level_id')->references('id')->on(PgLaratrainingCreateTableTrainingProposalLevels::table())->onDelete('cascade');      
+            $table->foreign('training_proposal_id')->references('id')->on(PgLaratrainingCreateTableTrainingProposals::table())->onDelete('cascade');      
         });
-        Schema::table(PgLaratrainingCreateTableTrainingProposalLevelModules::table(), function (Blueprint $table) {
+        Schema::table(PgLaratrainingCreateTableTrainingProposalModules::table(), function (Blueprint $table) {
             $table->foreign('trainer_id')->references('id')->on(PgLaratrainingCreateTableTrainers::table())->onDelete('cascade');      
             $table->foreign('training_module_id')->references('id')->on(PgLaratrainingCreateTableTrainingModules::table())->onDelete('cascade');      
-            $table->foreign('training_proposal_level_id')->references('id')->on(PgLaratrainingCreateTableTrainingProposalLevels::table())->onDelete('cascade');      
+            $table->foreign('training_proposal_id')->references('id')->on(PgLaratrainingCreateTableTrainingProposals::table())->onDelete('cascade');      
         });
         Schema::table(PgLaratrainingCreateTableTrainerDegrees::table(), function (Blueprint $table) {
             $table->foreign('training_degree_id')->references('id')->on(PgLaratrainingCreateTableTrainingDegrees::table())->onDelete('cascade');      
@@ -83,17 +80,14 @@ class PgLaratrainingAddForeignsKeys extends Migration
         Schema::table(PgLaratrainingCreateTableTrainingProposals::table(), function (Blueprint $table) {
             $table->dropForeign(['training_center_id','training_speciality_id','training_type_id','training_degree_id']);
         });
-        Schema::table(PgLaratrainingCreateTableTrainingProposalLevels::table(), function (Blueprint $table) {
-            $table->dropForeign(['training_proposal_id']);      
+        Schema::table(PgLaratrainingCreateTableStudentSubscriptions::table(), function (Blueprint $table) {
+            $table->dropForeign(['student_id','scholarship_id','training_proposal_id']);
         });
         Schema::table(PgLaratrainingCreateTableStudentSubscriptions::table(), function (Blueprint $table) {
-            $table->dropForeign(['student_id','scholarship_id','training_proposal_level_id']);
+            $table->dropForeign(['student_id','scholarship_id','training_proposal_id']);
         });
-        Schema::table(PgLaratrainingCreateTableStudentSubscriptions::table(), function (Blueprint $table) {
-            $table->dropForeign(['student_id','scholarship_id','training_proposal_level_id']);
-        });
-        Schema::table(PgLaratrainingCreateTableTrainingProposalLevelModules::table(), function (Blueprint $table) {
-            $table->dropForeign(['trainer_id','training_proposal_level_id','training_module_id']);
+        Schema::table(PgLaratrainingCreateTableTrainingProposalModules::table(), function (Blueprint $table) {
+            $table->dropForeign(['trainer_id','training_proposal_id','training_module_id']);
         });
         Schema::table(PgLaratrainingCreateTableTrainerDegrees::table(), function (Blueprint $table) {
             $table->dropForeign(['training_degree_id','trainer_id']);

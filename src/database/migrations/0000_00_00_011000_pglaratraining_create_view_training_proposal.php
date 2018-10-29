@@ -26,13 +26,36 @@ class PgLaratrainingCreateViewTrainingProposal extends PgLaratrainingMigration
         $trainingSpecialitieTable = PgLaratrainingCreateTableTrainingSpecialities::table();
         $trainingTypeTable = PgLaratrainingCreateTableTrainingTypes::table();
         $trainingCenterTable = PgLaratrainingCreateTableTrainingCenters::table();
-        $trainingProposalTable = PgLaratrainingCreateTableTrainingProposals::table();
         
-        $studentTable = PgLaratrainingCreateTableStudents::table();
-        $trainingProposalLevelTable = PgLaratrainingCreateTableTrainingProposalLevels::table();
         $studentSubscriptionTable = PgLaratrainingCreateTableStudentSubscriptions::table();
+        $studentTable = PgLaratrainingCreateTableStudents::table();
+        $trainingProposalModuleTable = PgLaratrainingCreateTableTrainingProposalModules::table();
+        $trainerTable = PgLaratrainingCreateTableTrainers::table();
+        $studentTable = PgLaratrainingCreateTableStudents::table();
+        $studentSubscriptionTable = PgLaratrainingCreateTableStudentSubscriptions::table();
+        
         DB::statement("
             CREATE VIEW ".self::table()." AS(
+                WITH selection1 as (
+                    SELECT 
+                        ".$studentSubscriptionTable.".training_proposal_id,
+                        COUNT(".$studentTable.".id) as student_count,
+                        COUNT(CASE WHEN ".$studentTable.".gender = 'M' THEN 1 END) as student_m_count,
+                        COUNT(CASE WHEN ".$studentTable.".gender = 'F' THEN 1 END) as student_f_count
+                    FROM ".$studentSubscriptionTable." 
+                    LEFT JOIN ".$studentTable." ON ".$studentTable.".id = ".$studentSubscriptionTable.".student_id
+                    GROUP BY ".$studentSubscriptionTable.".training_proposal_id
+                ),
+                selection2 as (
+                    SELECT 
+                        ".$trainingProposalModuleTable.".training_proposal_id,
+                        COUNT(".$trainerTable.".id) as trainer_count,
+                        COUNT(CASE WHEN ".$trainerTable.".gender = 'M' THEN 1 END) as trainer_m_count,
+                        COUNT(CASE WHEN ".$trainerTable.".gender = 'F' THEN 1 END) as trainer_f_count
+                    FROM ".$trainingProposalModuleTable." 
+                    LEFT JOIN ".$trainerTable." ON ".$trainerTable.".id = ".$trainingProposalModuleTable.".trainer_id
+                    GROUP BY ".$trainingProposalModuleTable.".training_proposal_id
+                )
                 SELECT 
                     ".$mainTable.".*,                    
 
@@ -48,13 +71,23 @@ class PgLaratrainingCreateViewTrainingProposal extends PgLaratrainingMigration
                     ".$trainingCenterTable.".sigle as training_center_sigle,       
                     ".$trainingCenterTable.".email as training_center_email,
                     ".$trainingCenterTable.".phone1 as training_center_phone1,
-                    ".$trainingCenterTable.".phone2 as training_center_phone2
+                    ".$trainingCenterTable.".phone2 as training_center_phone2,
+
+                    COALESCE(selection1.student_m_count , 0) as student_m_count,
+                    COALESCE(selection1.student_f_count , 0) as student_f_count,
+                    COALESCE(selection1.student_count , 0) as student_count,
+                    COALESCE(selection2.trainer_m_count , 0) as trainer_m_count,
+                    COALESCE(selection2.trainer_f_count , 0) as trainer_f_count,
+                    COALESCE(selection2.trainer_count , 0) as trainer_count
 
                 FROM ".$mainTable." 
                     LEFT JOIN ".$trainingDegreeTable." ON ".$trainingDegreeTable.".id = ".$mainTable.".training_degree_id
                     LEFT JOIN ".$trainingSpecialitieTable." ON ".$trainingSpecialitieTable.".id = ".$mainTable.".training_speciality_id
                     LEFT JOIN ".$trainingTypeTable." ON ".$trainingTypeTable.".id = ".$mainTable.".training_type_id
                     LEFT JOIN ".$trainingCenterTable." ON ".$trainingCenterTable.".id = ".$mainTable.".training_center_id
+    
+                    LEFT JOIN selection1 ON ".$mainTable.".id = selection1.training_proposal_id
+                    LEFT JOIN selection2 ON ".$mainTable.".id = selection2.training_proposal_id
             )
         ");
     }

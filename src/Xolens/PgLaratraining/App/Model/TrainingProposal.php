@@ -23,9 +23,10 @@ class TrainingProposal extends Model
      * @var array
      */
     protected $fillable = [
-        'id','name','year', 'total_fees',
-        'total_duration','description','training_center_id',
+        'id','name','year', 'description','training_center_id',
         'training_speciality_id','training_type_id','training_degree_id',
+        'session', 'duration','registration_fees','training_fees',
+        'training_capacity',
     ];
 
     /**

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Xolens\PgLaratraining\App\Util\PgLaratrainingMigration;
 
-class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratrainingMigration
+class PgLaratrainingCreateViewTrainingProposalModule extends PgLaratrainingMigration
 {
     /**
      * Return table name
@@ -11,7 +11,7 @@ class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratraining
      * @return string
      */
     public static function tableName(){
-        return 'training_proposal_level_module_view';
+        return 'training_proposal_module_view';
     }    
 
     /**
@@ -21,9 +21,9 @@ class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratraining
      */
     public function up()
     {
-        $mainTable = PgLaratrainingCreateTableTrainingProposalLevelModules::table();
+        $mainTable = PgLaratrainingCreateTableTrainingProposalModules::table();
         $trainingModuleTable = PgLaratrainingCreateTableTrainingModules::table();
-        $trainingProposalLevelTable = PgLaratrainingCreateTableTrainingProposalLevels::table();
+        $trainingProposalTable = PgLaratrainingCreateTableTrainingProposals::table();
         $trainerTable = PgLaratrainingCreateTableTrainers::table();
         DB::statement("
             CREATE VIEW ".self::table()." AS(
@@ -32,8 +32,8 @@ class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratraining
 
                     ".$trainingModuleTable.".name as training_module_name,              
 
-                    ".$trainingProposalLevelTable.".name as training_proposal_level_name,              
-                    ".$trainingProposalLevelTable.".session as training_proposal_level_session,
+                    ".$trainingProposalTable.".name as training_proposal_name,              
+                    ".$trainingProposalTable.".session as training_proposal_session,
 
                     ".$trainerTable.".matricule as trainer_matricule,              
                     ".$trainerTable.".email as trainer_email,              
@@ -43,7 +43,7 @@ class PgLaratrainingCreateViewTrainingProposalLevelModule extends PgLaratraining
                     ".$trainerTable.".phone2 as trainer_phone2      
                 FROM ".$mainTable." 
                     LEFT JOIN ".$trainingModuleTable." ON ".$trainingModuleTable.".id = ".$mainTable.".training_module_id
-                    LEFT JOIN ".$trainingProposalLevelTable." ON ".$trainingProposalLevelTable.".id = ".$mainTable.".training_proposal_level_id
+                    LEFT JOIN ".$trainingProposalTable." ON ".$trainingProposalTable.".id = ".$mainTable.".training_proposal_id
                     LEFT JOIN ".$trainerTable." ON ".$trainerTable.".id = ".$mainTable.".trainer_id
             )
         ");

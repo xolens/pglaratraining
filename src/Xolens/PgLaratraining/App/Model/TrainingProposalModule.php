@@ -4,13 +4,15 @@ namespace Xolens\PgLaratraining\App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-use PgLaratrainingCreateTableTrainingProposalLevels;
+use PgLaratrainingCreateTableTrainingProposalModules;
 
 
 
-class TrainingProposalLevel extends Model
+class TrainingProposalModule extends Model
 {
+    public const TRAINER_PROPERTY = "trainer_id";
     public const TRAINING_PROPOSAL_PROPERTY = "training_proposal_id";
+    public const TRAINING_MODULE_PROPERTY = "training_module_id";
 
     public $timestamps = false;
 
@@ -20,8 +22,8 @@ class TrainingProposalLevel extends Model
      * @var array
      */
     protected $fillable = [
-        'id','name', 'session', 'duration','registration_fees','training_fees',
-        'training_capacity','description','training_proposal_id',
+        'id','name','description',
+        'trainer_id','training_proposal_id','training_module_id',
     ];
 
     /**
@@ -32,7 +34,7 @@ class TrainingProposalLevel extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLaratrainingCreateTableTrainingProposalLevels::table();
+        $this->table = PgLaratrainingCreateTableTrainingProposalModules::table();
         parent::__construct($attributes);
     }
     

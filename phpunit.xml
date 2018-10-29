@@ -38,8 +38,7 @@
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainerHandicapRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainingModuleRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalRepositoryTest.php</file>
-            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalLevelRepositoryTest.php</file>
-            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalLevelModuleRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/TrainingProposalModuleRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/StudentSubscriptionRepositoryTest.php</file>
         </testsuite>
         <testsuite name="test-repoview">
@@ -61,8 +60,7 @@
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingCenterPartnerViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingDegreeViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingProposalViewRepositoryTest.php</file>
-            <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingProposalLevelViewRepositoryTest.php</file>
-            <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingProposalLevelModuleViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingProposalModuleViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingSpecialityViewRepositoryTest.php</file>
             <file>src/Xolens/PgLaratraining/Test/Repository/View/TrainingTypeViewRepositoryTest.php</file>
         </testsuite>
