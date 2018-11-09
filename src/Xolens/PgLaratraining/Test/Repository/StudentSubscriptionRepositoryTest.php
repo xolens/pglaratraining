@@ -37,7 +37,7 @@ final class StudentSubscriptionRepositoryTest extends WritableTestPgLaratraining
         $scholarshipId = $this->scholarshipRepo->model()::inRandomOrder()->first()->id;
         $trainingProposalId = $this->trainingProposalRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
-            "subscription_state" => "subscription_state".$i,
+            //"subscription_state" => "subscription_state".$i,
             "student_id" => $studentId,
             "scholarship_id" => $scholarshipId,
             "training_proposal_id" => $trainingProposalId,
@@ -69,7 +69,7 @@ final class StudentSubscriptionRepositoryTest extends WritableTestPgLaratraining
                 $scholarshipId = $this->scholarshipRepo->model()::inRandomOrder()->first()->id;
                 $trainingProposalId = $this->trainingProposalRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
-                "subscription_state" => "subscription_state".$i,
+            //"subscription_state" => "subscription_state".$i,
             "student_id" => $studentId,
             "scholarship_id" => $scholarshipId,
             "training_proposal_id" => $trainingProposalId,

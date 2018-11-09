@@ -26,7 +26,8 @@ class PgLaratrainingCreateTableStudentSubscriptions extends PgLaratrainingMigrat
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('subscription_state'); // Enum
+            //$table->string('subscription_state'); // Enum
+            $table->enum('subscription_state', ['UNKNOWN', 'RESIGNATION', 'INSOLVENT','SUCCESS','FAIL'])->default('UNKNOWN'); // Enum
             $table->integer('student_id')->index();
             $table->integer('scholarship_id')->nullable()->index();
             $table->integer('training_proposal_id')->index();
