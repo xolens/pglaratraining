@@ -15,8 +15,13 @@ class TrainingCenterRepository extends AbstractWritableRepository implements Tra
     }
     
     public function validationRules(array $data){
+        $id = self::get($data,'id');
         return [
-            'matricule' => [Rule::unique(PgLaratrainingCreateTableTrainingCenters::table())->ignore(self::get($data,'id'), 'id')],
+            'matricule' => [Rule::unique(PgLaratrainingCreateTableTrainingCenters::table())->where(function ($query) use($id) {
+                return $query->where('id','!=', $id)
+                ->WhereNotNull('matricule')
+                ->Where('matricule','!=','');
+            })],
             'email' => ['required',Rule::unique(PgLaratrainingCreateTableTrainingCenters::table())->ignore(self::get($data,'id'), 'id')],
             'phone1' => ['required',Rule::unique(PgLaratrainingCreateTableTrainingCenters::table())->ignore(self::get($data,'id'), 'id')],
         ];

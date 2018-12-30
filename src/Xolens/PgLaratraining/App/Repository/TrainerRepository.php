@@ -16,10 +16,15 @@ class TrainerRepository extends AbstractWritableRepository implements TrainerRep
     }
     
     public function validationRules(array $data){
+        $id = self::get($data,'id');
         return [
-            'matricule' => [Rule::unique(PgLaratrainingCreateTableTrainers::table())->ignore(self::get($data,'id'), 'id')],
-            'email' => ['required',Rule::unique(PgLaratrainingCreateTableTrainers::table())->ignore(self::get($data,'id'), 'id')],
-            'phone1' => ['required',Rule::unique(PgLaratrainingCreateTableTrainers::table())->ignore(self::get($data,'id'), 'id')],
+            'matricule' => [Rule::unique(PgLaratrainingCreateTableTrainers::table())->where(function ($query) use($id) {
+                return $query->where('id','!=', $id)
+                ->WhereNotNull('matricule')
+                ->Where('matricule','!=','');
+            })],
+            'email' => ['required',Rule::unique(PgLaratrainingCreateTableTrainers::table())->ignore($id, 'id')],
+            'phone1' => ['required',Rule::unique(PgLaratrainingCreateTableTrainers::table())->ignore($id, 'id')],
         ];
     }
     
