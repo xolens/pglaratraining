@@ -5,7 +5,7 @@ namespace Xolens\PgLaratraining\App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 use PgLaratrainingCreateTableTrainingCenters;
-use Xolens\LarautilContract\App\Util\Format\Formater;
+use Xolens\PgLarautil\App\Util\Format\Formater;
 
 class TrainingCenter extends Model
 {

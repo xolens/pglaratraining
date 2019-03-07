@@ -4,10 +4,9 @@ namespace Xolens\PgLaratraining\App\Repository\View;
 
 use Xolens\PgLaratraining\App\Model\View\StudentSubscriptionView;
 use Xolens\PgLaratraining\App\Model\StudentSubscription;
-use Xolens\LaratrainingContract\App\Contract\Repository\View\StudentSubscriptionViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class StudentSubscriptionViewRepository extends AbstractReadableRepository implements StudentSubscriptionViewRepositoryContract
 {

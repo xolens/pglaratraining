@@ -4,10 +4,9 @@ namespace Xolens\PgLaratraining\App\Repository\View;
 
 use Xolens\PgLaratraining\App\Model\View\TrainingProposalView;
 use Xolens\PgLaratraining\App\Model\TrainingProposal;
-use Xolens\LaratrainingContract\App\Contract\Repository\View\TrainingProposalViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class TrainingProposalViewRepository extends AbstractReadableRepository implements TrainingProposalViewRepositoryContract
 {

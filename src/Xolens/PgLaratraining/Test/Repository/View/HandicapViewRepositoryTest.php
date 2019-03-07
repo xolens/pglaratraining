@@ -3,8 +3,8 @@
 namespace Xolens\PgLaratraining\Test\View\Repository;
 
 use Xolens\PgLaratraining\App\Repository\View\HandicapViewRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\ReadOnlyTestPgLaratrainingBase;
 
 final class HandicapViewRepositoryTest extends ReadOnlyTestPgLaratrainingBase

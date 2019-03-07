@@ -4,10 +4,9 @@ namespace Xolens\PgLaratraining\App\Repository\View;
 
 use Xolens\PgLaratraining\App\Model\View\TrainerDegreeView;
 use Xolens\PgLaratraining\App\Model\TrainerDegree;
-use Xolens\LaratrainingContract\App\Contract\Repository\View\TrainerDegreeViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 
 class TrainerDegreeViewRepository extends AbstractReadableRepository implements TrainerDegreeViewRepositoryContract

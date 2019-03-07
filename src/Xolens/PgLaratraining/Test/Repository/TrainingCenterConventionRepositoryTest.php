@@ -4,8 +4,8 @@ namespace Xolens\PgLaratraining\Test\Repository;
 
 use Xolens\PgLaratraining\App\Repository\TrainingCenterConventionRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingCenterRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
 final class TrainingCenterConventionRepositoryTest extends WritableTestPgLaratrainingBase

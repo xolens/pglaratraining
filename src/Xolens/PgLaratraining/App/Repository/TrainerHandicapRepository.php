@@ -3,7 +3,6 @@
 namespace Xolens\PgLaratraining\App\Repository;
 
 use Xolens\PgLaratraining\App\Model\TrainerHandicap;
-use Xolens\LaratrainingContract\App\Contract\Repository\TrainerHandicapRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLaratrainingCreateTableTrainerHandicaps;

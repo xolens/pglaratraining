@@ -7,8 +7,8 @@ use Xolens\PgLaratraining\App\Repository\TrainingCenterRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingSpecialityRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingTypeRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingDegreeRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
 final class TrainingProposalRepositoryTest extends WritableTestPgLaratrainingBase

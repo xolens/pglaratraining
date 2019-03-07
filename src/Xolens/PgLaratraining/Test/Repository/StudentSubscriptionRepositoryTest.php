@@ -6,8 +6,8 @@ use Xolens\PgLaratraining\App\Repository\StudentSubscriptionRepository;
 use Xolens\PgLaratraining\App\Repository\StudentRepository;
 use Xolens\PgLaratraining\App\Repository\ScholarshipRepository;
 use Xolens\PgLaratraining\App\Repository\TrainingProposalRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
 final class StudentSubscriptionRepositoryTest extends WritableTestPgLaratrainingBase

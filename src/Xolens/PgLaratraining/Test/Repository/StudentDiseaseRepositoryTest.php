@@ -5,8 +5,8 @@ namespace Xolens\PgLaratraining\Test\Repository;
 use Xolens\PgLaratraining\App\Repository\StudentDiseaseRepository;
 use Xolens\PgLaratraining\App\Repository\StudentRepository;
 use Xolens\PgLaratraining\App\Repository\DiseaseRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLaratraining\Test\WritableTestPgLaratrainingBase;
 
 final class StudentDiseaseRepositoryTest extends WritableTestPgLaratrainingBase

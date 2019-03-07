@@ -4,10 +4,9 @@ namespace Xolens\PgLaratraining\App\Repository\View;
 
 use Xolens\PgLaratraining\App\Model\View\StudentHandicapView;
 use Xolens\PgLaratraining\App\Model\StudentHandicap;
-use Xolens\LaratrainingContract\App\Contract\Repository\View\StudentHandicapViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class StudentHandicapViewRepository extends AbstractReadableRepository implements StudentHandicapViewRepositoryContract
 {

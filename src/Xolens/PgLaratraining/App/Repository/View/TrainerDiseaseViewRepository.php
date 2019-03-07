@@ -4,10 +4,9 @@ namespace Xolens\PgLaratraining\App\Repository\View;
 
 use Xolens\PgLaratraining\App\Model\View\TrainerDiseaseView;
 use Xolens\PgLaratraining\App\Model\TrainerDisease;
-use Xolens\LaratrainingContract\App\Contract\Repository\View\TrainerDiseaseViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class TrainerDiseaseViewRepository extends AbstractReadableRepository implements TrainerDiseaseViewRepositoryContract
 {
