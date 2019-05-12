@@ -3,7 +3,7 @@
 namespace Xolens\PgLaratraining\App\Service;
 
 use Illuminate\Support\Facades\DB;
-use Xolens\LarautilContract\App\Repository\RepositoryResponse;
+use Xolens\PgLarautil\App\Util\RepositoryResponse;
 
 use PglarapollCreateFunctionCreateSelectInvestigationValuesQuery;
 
